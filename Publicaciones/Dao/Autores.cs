@@ -164,25 +164,25 @@ namespace Publicaciones.Dao
                             new AutoresModel().DeleteRelacion(this, RelacionObraAutor.IdObraSelect);
                         break;
                     case "IsCompilador":
-                        if (this.IsAutor)
+                        if (this.IsCompilador)
                             new AutoresModel().SetNewRelation(this, RelacionObraAutor.IdObraSelect);
                         else
                             new AutoresModel().DeleteRelacion(this, RelacionObraAutor.IdObraSelect);
                         break;
                     case "IsTraductor":
-                        if (this.IsAutor)
+                        if (this.IsTraductor)
                             new AutoresModel().SetNewRelation(this, RelacionObraAutor.IdObraSelect);
                         else
                             new AutoresModel().DeleteRelacion(this, RelacionObraAutor.IdObraSelect);
                         break;
                     case "IsCoordinador":
-                        if (this.IsAutor)
+                        if (this.IsCoordinador)
                             new AutoresModel().SetNewRelation(this, RelacionObraAutor.IdObraSelect);
                         else
                             new AutoresModel().DeleteRelacion(this, RelacionObraAutor.IdObraSelect);
                         break;
                     case "IsComentarista":
-                        if (this.IsAutor)
+                        if (this.IsComentarista)
                             new AutoresModel().SetNewRelation(this, RelacionObraAutor.IdObraSelect);
                         else
                             new AutoresModel().DeleteRelacion(this, RelacionObraAutor.IdObraSelect);
