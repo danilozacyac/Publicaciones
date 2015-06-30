@@ -18,8 +18,11 @@ namespace Publicaciones.Dao
         private bool isTraductor;
         private bool isCoordinador;
         private bool isComentarista;
+        private bool isCoedicion;
+        private bool isEstudio;
+        private bool isPrologo;
         
-        public int IdAutor
+       public int IdAutor
         {
             get
             {
@@ -144,6 +147,47 @@ namespace Publicaciones.Dao
             }
         }
 
+        public bool IsCoedicion
+        {
+            get
+            {
+                return this.isCoedicion;
+            }
+            set
+            {
+                this.isCoedicion = value;
+                this.OnPropertyChanged("IsCoedicion");
+            }
+        }
+
+        public bool IsEstudio
+        {
+            get
+            {
+                return this.isEstudio;
+            }
+            set
+            {
+                this.isEstudio = value;
+                this.OnPropertyChanged("IsEstudio");
+            }
+        }
+
+        public bool IsPrologo
+        {
+            get
+            {
+                return this.isPrologo;
+            }
+            set
+            {
+                this.isPrologo = value;
+                this.OnPropertyChanged("IsPrologo");
+            }
+        }
+
+        
+
         #region INotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -183,6 +227,24 @@ namespace Publicaciones.Dao
                         break;
                     case "IsComentarista":
                         if (this.IsComentarista)
+                            new AutoresModel().SetNewRelation(this, RelacionObraAutor.IdObraSelect);
+                        else
+                            new AutoresModel().DeleteRelacion(this, RelacionObraAutor.IdObraSelect);
+                        break;
+                    case "IsCoedicion":
+                        if (this.IsCoedicion)
+                            new AutoresModel().SetNewRelation(this, RelacionObraAutor.IdObraSelect);
+                        else
+                            new AutoresModel().DeleteRelacion(this, RelacionObraAutor.IdObraSelect);
+                        break;
+                    case "IsEstudio":
+                        if (this.IsEstudio)
+                            new AutoresModel().SetNewRelation(this, RelacionObraAutor.IdObraSelect);
+                        else
+                            new AutoresModel().DeleteRelacion(this, RelacionObraAutor.IdObraSelect);
+                        break;
+                    case "IsPrologo":
+                        if (this.IsPrologo)
                             new AutoresModel().SetNewRelation(this, RelacionObraAutor.IdObraSelect);
                         else
                             new AutoresModel().DeleteRelacion(this, RelacionObraAutor.IdObraSelect);

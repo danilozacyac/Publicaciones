@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Publicaciones.Reportes;
 using Publicaciones.Singletons;
 
@@ -58,9 +49,27 @@ namespace Publicaciones
             GeneraWord word = new GeneraWord();
 
             if (isAutoresVisible)
-                word.AutoresObras(CAutores.AutorSelect, CAutores.ObrasAutor);
+                word.AutoresObras(CAutores.AutorSelect, CAutores.ObrasAutor,false);
             else if(!isAutoresVisible && CObras.ObraSeleccionada != null)
                 word.ObrasAutores(CObras.ObraSeleccionada);
+        }
+
+        private void ConSintesis_Click(object sender, Telerik.Windows.RadRoutedEventArgs e)
+        {
+            GeneraWord word = new GeneraWord();
+
+            if (isAutoresVisible)
+                word.AutoresObras(CAutores.AutorSelect, CAutores.ObrasAutor, true);
+            else if (!isAutoresVisible && CObras.ObraSeleccionada != null)
+                word.ObrasAutores(CObras.ObraSeleccionada);
+        }
+
+        private void RBtnObrasdispo_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            GeneraWord lista = new GeneraWord();
+            lista.ListaObrasDisposicion(ObrasSingleton.Obras);
         }
     }
 }

@@ -18,6 +18,9 @@ namespace Publicaciones.Converter
                 case 3: return new SolidColorBrush(Colors.LightGreen);
                 case 4: return new SolidColorBrush(Colors.LightPink);
                 case 5: return new SolidColorBrush(Colors.Yellow);
+                case 6: return new SolidColorBrush(Colors.MediumPurple);
+                case 7: return new SolidColorBrush(Colors.Orange);
+                case 8: return new SolidColorBrush(Colors.MediumVioletRed);
                 default: return new SolidColorBrush(Colors.White);
             }
 

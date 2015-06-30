@@ -6,10 +6,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:search="clr-namespace:UIControls;assembly=UIControls"
              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             IsVisibleChanged="UserControl_IsVisibleChanged"
              Loaded="UserControl_Loaded"
              d:DesignHeight="300"
              d:DesignWidth="300"
-             mc:Ignorable="d"  IsVisibleChanged="UserControl_IsVisibleChanged">
+             mc:Ignorable="d">
     <UserControl.Resources>
         <converter:ImageConverter x:Key="imageConv" />
         <converter:AutoresConverter x:Key="autConv" />
@@ -37,9 +38,13 @@
                              VerticalAlignment="Stretch"
                              AutoGenerateColumns="False"
                              ItemsSource="{Binding}"
+                             MouseDoubleClick="GObras_MouseDoubleClick"
                              SelectionChanged="GObras_SelectionChanged"
-                             ShowGroupPanel="False" MouseDoubleClick="GObras_MouseDoubleClick" >
+                             ShowGroupPanel="False">
             <telerik:RadGridView.Columns>
+                <telerik:GridViewCheckBoxColumn DataMemberBinding="{Binding ForPersonal}" EditTriggers="CellClick" AutoSelectOnEdit="True"
+                                                Header="En lista"
+                                                HeaderTextAlignment="Center" />
                 <telerik:GridViewImageColumn Width="100"
                                              DataMemberBinding="{Binding Imagen,
                                                                          Converter={StaticResource imageConv}}"
@@ -111,7 +116,8 @@
                         <DataTemplate>
                             <TextBlock MaxHeight="150"
                                        FontSize="12"
-                                       Text="{Binding LAutores, Mode=TwoWay,
+                                       Text="{Binding LAutores,
+                                                      Mode=TwoWay,
                                                       Converter={StaticResource autConv}}"
                                        TextWrapping="Wrap" />
                         </DataTemplate>
@@ -125,15 +131,23 @@
                 </Style>
             </telerik:RadGridView.RowStyle>
         </telerik:RadGridView>
-        <Image HorizontalAlignment="Right" Height="30" Margin="0,10,10,0" VerticalAlignment="Top" Width="29" Source="Resources/colors.png" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+        <Image Width="29"
+               Height="30"
+               Margin="0,10,10,0"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Top"
+               MouseLeftButtonDown="Image_MouseLeftButtonDown"
+               Source="Resources/colors.png" />
 
-        <!--<telerik:RadDataPager x:Name="radDataPager"
+        <!--
+            <telerik:RadDataPager x:Name="radDataPager"
             Grid.Row="1"
             VerticalAlignment="Bottom"
             PageSize="15"
             Source="{Binding Items,
-            ElementName=GObras}" />-->
-        
+            ElementName=GObras}" />
+        -->
+
 
 
     </Grid>

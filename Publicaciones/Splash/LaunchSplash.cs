@@ -24,7 +24,7 @@ namespace Publicaciones.Splash
             var temp2 = ObrasSingleton.Obras;
             var temp = AutoresSingleton.Autores;
 
-            for (int i = 0; i < 2000; i++)
+            for (int i = 0; i < 1000; i++)
             {
                 MessageListener.Instance.ReceiveMessage(string.Format("Cargando módulos {0}", i));
                 Thread.Sleep(2);
@@ -33,7 +33,7 @@ namespace Publicaciones.Splash
             foreach (Autores autor in AutoresSingleton.Autores)
             {
                 MessageListener.Instance.ReceiveMessage(string.Format("Autores: {0}", autor.Nombre));
-                Thread.Sleep(50);
+                Thread.Sleep(20);
             }
 
             watch.Stop();

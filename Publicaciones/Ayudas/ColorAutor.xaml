@@ -1,10 +1,10 @@
-﻿<telerik:RadWindow x:Class="Publicaciones.Ayudas.ColorAutor"
+﻿<Window x:Class="Publicaciones.Ayudas.ColorAutor"
                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
-                   Width="300"
+                   Width="486"
                    Height="300"
-                   Header=""
+                   
                    ResizeMode="NoResize"
                    WindowStartupLocation="CenterScreen">
     <Grid>
@@ -68,6 +68,42 @@
                VerticalAlignment="Top"
                Content="Comentarista"
                FontSize="16" />
+        <Rectangle Width="27"
+        	Height="26"
+        	Margin="241,34,0,0"
+        	HorizontalAlignment="Left"
+        	VerticalAlignment="Top"
+        	Fill="MediumPurple"
+        	Stroke="Black" />
+        <Rectangle Width="27"
+        	Height="26"
+        	Margin="241,76,0,0"
+        	HorizontalAlignment="Left"
+        	VerticalAlignment="Top"
+        	Fill="Orange"
+        	Stroke="Black" />
+        <Rectangle Width="27"
+        	Height="26"
+        	Margin="241,118,0,0"
+        	HorizontalAlignment="Left"
+        	VerticalAlignment="Top"
+        	Fill="MediumVioletRed"
+        	Stroke="Black" />
+        <Label Margin="303,29,0,0"
+        	HorizontalAlignment="Left"
+        	VerticalAlignment="Top"
+        	Content="Coeditor"
+        	FontSize="16" />
+        <Label Margin="303,71,0,0"
+        	HorizontalAlignment="Left"
+        	VerticalAlignment="Top"
+        	Content="Estudio Introductorio"
+        	FontSize="16" />
+        <Label Margin="303,113,0,0"
+        	HorizontalAlignment="Left"
+        	VerticalAlignment="Top"
+        	Content="Prologuista"
+        	FontSize="16" />
 
     </Grid>
-</telerik:RadWindow>
+</Window>

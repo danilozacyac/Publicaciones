@@ -5,7 +5,6 @@ using System.Windows.Controls;
 using Publicaciones.Ayudas;
 using Publicaciones.Dao;
 using Publicaciones.Mantenimiento;
-using Publicaciones.Models;
 using Publicaciones.Singletons;
 
 namespace Publicaciones
@@ -29,10 +28,12 @@ namespace Publicaciones
 
         private void GObras_SelectionChanged(object sender, Telerik.Windows.Controls.SelectionChangeEventArgs e)
         {
-            //ObraSeleccionada = GObras.SelectedItem as Obras;
-            ObraSeleccionada = (from n in ObrasSingleton.Obras
-                                where n == (GObras.SelectedItem as Obras)
-                                select n).ToList()[0];
+            if(GObras.SelectedItem != null)
+            ObraSeleccionada = GObras.SelectedItem as Obras;
+            //if(
+            //ObraSeleccionada = (from n in ObrasSingleton.Obras
+            //                    where n == (GObras.SelectedItem as Obras)
+            //                    select n).ToList()[0];
         }
 
         private void SearchTextBox_Search(object sender, RoutedEventArgs e)

@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Publicaciones.Models;
 
 namespace Publicaciones.Dao 
 {
     public class Obras : INotifyPropertyChanged
     {
+        private bool forPersonal;
         private int idObra;
         private int orden;
         private string titulo;
@@ -38,6 +37,20 @@ namespace Publicaciones.Dao
         private ObservableCollection<Autores> lAutores;
         private int idTipoAutor;
         private string tipoPublicacionStr;
+        private bool notify = false;
+
+        public bool ForPersonal
+        {
+            get
+            {
+                return this.forPersonal;
+            }
+            set
+            {
+                this.forPersonal = value;
+                this.OnPropertyChanged("ForPersonal");
+            }
+        }
 
         public int IdObra
         {
@@ -376,6 +389,20 @@ namespace Publicaciones.Dao
             }
         }
 
+        public bool Notify
+        {
+            get
+            {
+                return this.notify;
+            }
+            set
+            {
+                this.notify = value;
+            }
+        }
+
+        
+
         #region INotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -385,7 +412,10 @@ namespace Publicaciones.Dao
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 
-           
+            if (propertyName.Equals("ForPersonal") && notify == true)
+                new ObrasModel().WhatToDoDisponible(IdObra, ForPersonal);
+
+
         }
 
         #endregion // INotifyPropertyChanged Members

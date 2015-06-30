@@ -5,6 +5,7 @@ using System.Data.OleDb;
 using System.Linq;
 using System.Windows;
 using Publicaciones.Dao;
+using ScjnUtilities;
 
 namespace Publicaciones.Models
 {
@@ -44,13 +45,15 @@ namespace Publicaciones.Models
                 cmd.Dispose();
                 reader.Close();
             }
-            catch (OleDbException sql)
+            catch (OleDbException ex)
             {
-                MessageBox.Show("Error ({0}) : {1}" + sql.Source + sql.Message, "Error Interno");
+                string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+                ErrorUtilities.SetNewErrorMessage(ex, methodName + " Exception,OtrosDatosModel", "Publicaciones");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error ({0}) : {1}" + ex.Source + ex.Message, "Error Interno");
+                string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+                ErrorUtilities.SetNewErrorMessage(ex, methodName + " Exception,OtrosDatosModel", "Publicaciones");
             }
             finally
             {
@@ -108,6 +111,56 @@ namespace Publicaciones.Models
             }
 
             return listaTitulos;
+        }
+
+        public ObservableCollection<OtrosDatos> GetMedioPub()
+        {
+            ObservableCollection<OtrosDatos> listaMedios = new ObservableCollection<OtrosDatos>();
+
+            OleDbConnection oleConne = new OleDbConnection(connectionString);
+            OleDbCommand cmd = null;
+            OleDbDataReader reader = null;
+
+            String sqlCadena = "SELECT * FROM Medio_Publicacion ORDER BY Id";
+
+            try
+            {
+                oleConne.Open();
+
+                cmd = new OleDbCommand(sqlCadena, oleConne);
+                reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        OtrosDatos autor = new OtrosDatos();
+                        autor.IdDato = reader["Id"] as Int16? ?? -1;
+                        autor.Descripcion = reader["Desc"].ToString();
+
+                        listaMedios.Add(autor);
+                    }
+                }
+                cmd.Dispose();
+                reader.Close();
+            }
+            catch (OleDbException ex)
+            {
+                string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+                ErrorUtilities.SetNewErrorMessage(ex, methodName + " Exception,OtrosDatosModel", "Publicaciones");
+            }
+            catch (Exception ex)
+            {
+                string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+                ErrorUtilities.SetNewErrorMessage(ex, methodName + " Exception,OtrosDatosModel", "Publicaciones");
+            }
+            finally
+            {
+
+                oleConne.Close();
+            }
+
+            return listaMedios;
         }
 
     }

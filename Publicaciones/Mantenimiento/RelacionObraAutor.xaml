@@ -4,7 +4,7 @@
         xmlns:search="clr-namespace:UIControls;assembly=UIControls"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         Title="RelacionObraAutor"
-        Width="800"
+        Width="900"
         Height="600"
         Closing="Window_Closing"
         Loaded="Window_Loaded">
@@ -41,6 +41,7 @@
                                             DataMemberBinding="{Binding IdAutor}"
                                             Header="Id"
                                             HeaderTextAlignment="Center"
+                                            IsVisible="False"
                                             IsFilterable="False"
                                             IsReadOnly="True" />
 
@@ -59,7 +60,7 @@
                                                 Header="Autor"
                                                 HeaderTextAlignment="Center"
                                                 IsFilterable="True" />
-                <telerik:GridViewCheckBoxColumn Width="90"
+                <telerik:GridViewCheckBoxColumn Width="75"
                                                 AutoSelectOnEdit="True"
                                                 DataMemberBinding="{Binding IsCompilador,
                                                                             Mode=TwoWay}"
@@ -67,7 +68,7 @@
                                                 Header="Compilador"
                                                 HeaderTextAlignment="Center"
                                                 IsFilterable="True" />
-                <telerik:GridViewCheckBoxColumn Width="90"
+                <telerik:GridViewCheckBoxColumn Width="75"
                                                 AutoSelectOnEdit="True"
                                                 DataMemberBinding="{Binding IsTraductor,
                                                                             Mode=TwoWay}"
@@ -75,7 +76,7 @@
                                                 Header="Traductor"
                                                 HeaderTextAlignment="Center"
                                                 IsFilterable="True" />
-                <telerik:GridViewCheckBoxColumn Width="90"
+                <telerik:GridViewCheckBoxColumn Width="75"
                                                 AutoSelectOnEdit="True"
                                                 DataMemberBinding="{Binding IsCoordinador,
                                                                             Mode=TwoWay}"
@@ -83,7 +84,7 @@
                                                 Header="Coordinador"
                                                 HeaderTextAlignment="Center"
                                                 IsFilterable="True" />
-                <telerik:GridViewCheckBoxColumn Width="90"
+                <telerik:GridViewCheckBoxColumn Width="75"
                                                 AutoSelectOnEdit="True"
                                                 DataMemberBinding="{Binding IsComentarista,
                                                                             Mode=TwoWay}"
@@ -91,7 +92,30 @@
                                                 Header="Comentarista"
                                                 HeaderTextAlignment="Center"
                                                 IsFilterable="True" />
-
+                <telerik:GridViewCheckBoxColumn Width="75"
+                                                AutoSelectOnEdit="True"
+                                                DataMemberBinding="{Binding IsCoedicion,
+                                                                            Mode=TwoWay}"
+                                                EditTriggers="CellClick"
+                                                Header="Coeditor"
+                                                HeaderTextAlignment="Center"
+                                                IsFilterable="True" />
+                <telerik:GridViewCheckBoxColumn Width="75"
+                                                AutoSelectOnEdit="True"
+                                                DataMemberBinding="{Binding IsEstudio,
+                                                                            Mode=TwoWay}"
+                                                EditTriggers="CellClick"
+                                                Header="Estudio In."
+                                                HeaderTextAlignment="Center"
+                                                IsFilterable="True" />
+                <telerik:GridViewCheckBoxColumn Width="75"
+                                                AutoSelectOnEdit="True"
+                                                DataMemberBinding="{Binding IsPrologo,
+                                                                            Mode=TwoWay}"
+                                                EditTriggers="CellClick"
+                                                Header="Prologuista"
+                                                HeaderTextAlignment="Center"
+                                                IsFilterable="True" />
 
             </telerik:RadGridView.Columns>
         </telerik:RadGridView>

@@ -10,6 +10,7 @@ namespace Publicaciones.Singletons
     {
         private static ObservableCollection<OtrosDatos> tipoAutor;
         private static ObservableCollection<OtrosDatos> titulos;
+        private static ObservableCollection<OtrosDatos> medioPublicacion;
 
         private OtrosDatosSingleton()
         {
@@ -34,6 +35,17 @@ namespace Publicaciones.Singletons
                     titulos = new OtrosDatosModel().GetTitulos();
 
                 return titulos;
+            }
+        }
+
+        public static ObservableCollection<OtrosDatos> MedioPublicacion
+        {
+            get
+            {
+                if (medioPublicacion == null)
+                    medioPublicacion = new OtrosDatosModel().GetMedioPub();
+
+                return medioPublicacion;
             }
         }
     }
