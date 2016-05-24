@@ -42,7 +42,9 @@
                              SelectionChanged="GObras_SelectionChanged"
                              ShowGroupPanel="False">
             <telerik:RadGridView.Columns>
-                <telerik:GridViewCheckBoxColumn DataMemberBinding="{Binding ForPersonal}" EditTriggers="CellClick" AutoSelectOnEdit="True"
+                <telerik:GridViewCheckBoxColumn AutoSelectOnEdit="True"
+                                                DataMemberBinding="{Binding ForPersonal}"
+                                                EditTriggers="CellClick"
                                                 Header="En lista"
                                                 HeaderTextAlignment="Center" />
                 <telerik:GridViewImageColumn Width="100"

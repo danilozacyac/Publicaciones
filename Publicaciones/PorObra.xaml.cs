@@ -41,7 +41,7 @@ namespace Publicaciones
             String tempString = ((TextBox)sender).Text.ToUpper();
 
             GObras.DataContext = (from n in ObrasSingleton.Obras
-                                  where n.TituloStr.ToUpper().Contains(tempString)
+                                  where n.TituloStr.ToUpper().Contains(tempString)  || n.Sintesis.ToUpper().Contains(tempString)
                                   select n).ToList();
         }
 

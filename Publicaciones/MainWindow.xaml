@@ -55,8 +55,9 @@
                                              SmallImage="Resources/printer.png"
                                              Text="Imprimir" />
                     <telerik:RadRibbonButton x:Name="RBtnObrasdispo"
+                                             Click="RBtnObrasdispo_Click"
                                              LargeImage="Resources/listpeople_128.png"
-                                             Size="Large" Click="RBtnObrasdispo_Click">
+                                             Size="Large">
                         <StackPanel Orientation="Vertical">
                             <TextBlock HorizontalAlignment="Center" Text="Obras a" />
                             <TextBlock HorizontalAlignment="Center" Text="disposición" />
